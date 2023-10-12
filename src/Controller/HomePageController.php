@@ -6,12 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class HomePageController extends AbstractController
+class HomepageController extends AbstractController
 {
-    #[Route('/')]
+    #[Route('/', name: 'homepage')]
     public function homePage(): Response
     {
-        return $this->render('HomePage/home_page.html.twig', [
+        return $this->render('Homepage/homepage.html.twig', [
             'title' => 'Domov',
         ]);
     }
