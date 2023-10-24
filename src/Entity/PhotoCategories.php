@@ -46,13 +46,20 @@ class PhotoCategories
 
     public function getCategoryPhotoPath(): ?string
     {
-        return $this->categoryPhotoPath;
+        if (!$this->categoryPhotoPath) {
+            return null;
+        }
+        
+        if (strpos($this->categoryPhotoPath, '/' !== false)) {
+            return $this->categoryPhotoPath;
+        };
+
+        return sprintf('%s', $this->categoryPhotoPath);
     }
 
     public function setCategoryPhotoPath(string $categoryPhotoPath): static
     {
         $this->categoryPhotoPath = $categoryPhotoPath;
-
         return $this;
     }
 
