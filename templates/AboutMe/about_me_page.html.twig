@@ -3,6 +3,13 @@
 {% block body %}
 <section class="about-me">
 <h1>{{ title }}</h1>
+<div data-controller="counter">
+    <button data-action="click->counter#increment" class="btn btn-primary btn-small">Click me!</button>
+    <br>
+    I have been clicked
+    <span data-counter-target="count">0</span>
+    times!
+</div>
 </section>
     
 {% endblock %}
