@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand mx-4" href="#" id="brand">
+      <a class="navbar-brand mx-4" href="{{ path('homepage') }}" id="brand">
         <img src="{{ asset('images/brand.png') }}" alt="Logo" class="d-inline-block align-text-top">
         <span>FOTOGRAFIE OD HANKY</span>
       </a>
@@ -18,35 +18,35 @@
           </li>
           {% if  is_granted('ROLE_ADMIN') %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('admin') }}">Administrace</a>
+            <a data-turbo="false" class="nav-link" href="{{ path('admin') }}">Administrace</a>
           </li>
           {% endif %}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Domů</a>
+            <a class="nav-link active" aria-current="page" href="{{ path('homepage') }}">Domů</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Portfolio</a>
+            <a class="nav-link" href="{{ path('portfolio_page') }}">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Novinky</a>
+            <a class="nav-link" href="{{ path('special_offer_page') }}">Novinky</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Ceník</a>
+            <a class="nav-link" href="{{ path('price_list_page') }}">Ceník</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">O mně</a>
+            <a class="nav-link" href="{{ path('about_me_page') }}">O mně</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Kontakt</a>
+            <a class="nav-link" href="{{ path('contact_page') }}">Kontakt</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Další
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item nav-link" href="#">Články</a></li>
-              <li><a class="dropdown-item nav-link" href="#">Obchodní podmínky</a></li>
-              <li><a class="dropdown-item nav-link" href="#">Informace k focení</a></li>
+              <li><a class="dropdown-item nav-link" href="{{ path('blog_page') }}">Články</a></li>
+              <li><a class="dropdown-item nav-link" href="{{ path('business_conditions_page') }}">Obchodní podmínky</a></li>
+              <li><a class="dropdown-item nav-link" href="{{ path('photography_info_page') }}">Informace k focení</a></li>
             </ul>
           </li>
         </ul>
