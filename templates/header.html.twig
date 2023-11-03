@@ -1,3 +1,28 @@
+{% set current_route = app.request.attributes.get('_route') %}
+{% set current_route_from_query_params = app.request.query.get('currentRoute') %}
+
+{% set active_route = null %}
+{% if current_route == 'homepage' or current_route_from_query_params == 'homepage' %}
+    {% set active_route = 'homepage' %}
+{% elseif current_route == 'portfolio_page' or current_route_from_query_params == 'portfolio_page' %}
+    {% set active_route = 'portfolio_page' %}
+{% elseif current_route == 'special_offer_page' or current_route_from_query_params == 'special_offer_page' %}
+    {% set active_route = 'special_offer_page' %}
+{% elseif current_route == 'price_list_page' or current_route_from_query_params == 'price_list_page' %}
+    {% set active_route = 'price_list_page' %}
+{% elseif current_route == 'about_me_page' or current_route_from_query_params == 'about_me_page' %}
+    {% set active_route = 'about_me_page' %}
+{% elseif current_route == 'contact_page' or current_route_from_query_params == 'contact_page' %}
+    {% set active_route = 'contact_page' %}
+{% elseif current_route == 'blog_page' or current_route_from_query_params == 'blog_page' %}
+    {% set active_route = 'blog_page' %}
+{% elseif current_route == 'business_conditions_page' or current_route_from_query_params == 'business_conditions_page' %}
+    {% set active_route = 'business_conditions_page' %}
+{% elseif current_route == 'photography_info_page' or current_route_from_query_params == 'photography_info_page' %}
+    {% set active_route = 'photography_info_page' %}
+{% endif %}
+
+
 <header>
   <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top">
     <div class="container-fluid">
@@ -22,31 +47,31 @@
           </li>
           {% endif %}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ path('homepage') }}">Domů</a>
+            <a class="nav-link {% if active_route == 'homepage' %}active{% endif %}" aria-current="page" href="{{ path('homepage') }}">Domů</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('portfolio_page') }}">Portfolio</a>
+            <a class="nav-link {% if active_route == 'portfolio_page' %}active{% endif %}" href="{{ path('portfolio_page') }}">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('special_offer_page') }}">Novinky</a>
+            <a class="nav-link {% if active_route == 'special_offer_page' %}active{% endif %}" href="{{ path('special_offer_page') }}">Novinky</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('price_list_page') }}">Ceník</a>
+            <a class="nav-link {% if active_route == 'price_list_page' %}active{% endif %}" href="{{ path('price_list_page') }}">Ceník</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('about_me_page') }}">O mně</a>
+            <a class="nav-link {% if active_route == 'about_me_page' %}active{% endif %}" href="{{ path('about_me_page') }}">O mně</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('contact_page') }}">Kontakt</a>
+            <a class="nav-link {% if active_route == 'contact_page' %}active{% endif %}" href="{{ path('contact_page') }}">Kontakt</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Další
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item nav-link" href="{{ path('blog_page') }}">Články</a></li>
-              <li><a class="dropdown-item nav-link" href="{{ path('business_conditions_page') }}">Obchodní podmínky</a></li>
-              <li><a class="dropdown-item nav-link" href="{{ path('photography_info_page') }}">Informace k focení</a></li>
+              <li><a class="dropdown-item nav-link {% if active_route == 'blog_page' %}active{% endif %}" href="{{ path('blog_page') }}">Články</a></li>
+              <li><a class="dropdown-item nav-link {% if active_route == 'business_conditions_page' %}active{% endif %}" href="{{ path('business_conditions_page') }}">Obchodní podmínky</a></li>
+              <li><a class="dropdown-item nav-link {% if active_route == 'photography_info_page' %}active{% endif %}" href="{{ path('photography_info_page') }}">Informace k focení</a></li>
             </ul>
           </li>
         </ul>

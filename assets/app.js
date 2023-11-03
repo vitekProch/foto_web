@@ -7,5 +7,7 @@ import './bootstrap.js';
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
+import "./turbo/turbo-helper";
 import "./styles/app.scss";
-import "./bootstrap"
+import "./bootstrap";
+
