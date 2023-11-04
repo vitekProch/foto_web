@@ -1,0 +1,17 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content {
+    margin-top: 81px;
+
+    h1 {
+        font-size: 100px;
+    }
+}
+.content.without-nav-margin{
+    margin-top: 0px;
+}
