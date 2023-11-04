@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block title %} O mně | {{ parent() }}{% endblock %}
 {% block body %}
-<section class="about-me">
+<div class="about-me">
 <h1>{{ title }}</h1>
 <div data-controller="counter">
     <button data-action="click->counter#increment" class="btn btn-primary btn-small">Click me!</button>
@@ -10,6 +10,6 @@
     <span data-counter-target="count">0</span>
     times!
 </div>
-</section>
+</div>
     
 {% endblock %}
