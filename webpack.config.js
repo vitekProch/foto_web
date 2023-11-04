@@ -55,7 +55,13 @@ Encore
         config.useBuiltIns = 'usage';
         config.corejs = '3.23';
     })
-
+    .configureBabel((babelConfig) => {
+        if (Encore.isProduction()) {
+            babelConfig.plugins.push(
+                'transform-react-remove-prop-types'
+            );
+        }
+    })
     // enables Sass/SCSS support
     .enableSassLoader()
     .enableStimulusBridge('./assets/controllers.json')
