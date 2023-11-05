@@ -23,14 +23,14 @@
 {% endif %}
 
 
-<header>
-  <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top">
+<header data-controller="navbar">
+  <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top" data-navbar-target="navbarBackground" data-action="scroll@window->navbar#navbarBackgroundShow">
     <div class="container-fluid">
       <a class="navbar-brand mx-4" href="{{ path('homepage') }}" id="brand">
         <img src="{{ asset('images/brand.png') }}" alt="Logo" class="d-inline-block align-text-top">
         <span>FOTOGRAFIE OD HANKY</span>
       </a>
-      <button type="button" class="hamburger navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button type="button" class="hamburger navbar-toggler collapsed" data-navbar-target="toggleButton" data-action="navbar#navbarHamburgerClicked" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
