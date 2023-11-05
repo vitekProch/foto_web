@@ -3,14 +3,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-family: 'Open Sans', sans-serif;
+}
+h1, h4{
+    font-family: 'League Gothic', sans-serif;
 }
 
 .content {
     margin-top: 81px;
-
-    h1 {
-        font-size: 100px;
-    }
 }
 .content.without-nav-margin{
     margin-top: 0px;
