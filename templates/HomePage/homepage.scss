@@ -29,18 +29,15 @@
     }
 }
 
-.contact-link-container{
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    height: 10%;
+// ---------- OPENING TEXT SECTION --------- //
+.opening-text-section{
+    background-color: $first_color;
 }
-.contact-link-homepage{
-    text-decoration: none;
-    font-size: 30px;
-    text-align: right;
-    color: #333;
+.opening-text-image img{
+    object-fit: cover;
+    width: 100%;
 }
-.home-page-about-me-link{
-    text-align: right;
-}
+.swiperr {
+    width: 600px;
+    height: 300px;
+  }
