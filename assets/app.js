@@ -11,4 +11,3 @@ import "./turbo/turbo-helper";
 import "./styles/app.scss";
 import "./bootstrap";
 import "./dynamic-imports.js";
-import "./js/slider/slider.js"
