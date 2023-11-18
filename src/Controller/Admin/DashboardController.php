@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\PeopleReviews;
 use App\Entity\PhotoCategories;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
@@ -48,6 +49,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToUrl('Hlavní stránka', 'fa fa-home', $this->generateUrl('homepage'));
         yield MenuItem::linkToCrud('Úprava kategorií', 'fa fa-home', PhotoCategories::class);
+        yield MenuItem::linkToCrud('Reviews', 'fa fa-home', PeopleReviews::class);
         yield MenuItem::linkToCrud('Uživatelé', 'fas fa-users', User::class)
             ->setPermission('ROLE_SUPER_ADMIN');
     }
