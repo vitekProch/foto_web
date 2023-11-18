@@ -8,10 +8,12 @@ body {
 h1, h2, h4{
     font-family: 'League Gothic', sans-serif;
 }
-
+a {
+    text-decoration: none;
+}
 .content {
     margin-top: 81px;
 }
 .content.without-nav-margin{
-    margin-top: 0px;
+    margin-top: 0;
 }

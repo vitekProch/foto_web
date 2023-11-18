@@ -26,7 +26,7 @@ export default class extends Controller {
     }
     
     portfolioSlider(){
-        const portfolioSlider = new Swiper('.portfolio-slider', {
+        const portfolioSlider = new Swiper('.categories-slider', {
             // Optional parameters
             direction: 'horizontal',
             slidesPerView: 4,

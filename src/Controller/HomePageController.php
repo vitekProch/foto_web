@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\PeopleReviews;
 use App\Entity\PhotoCategories;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,11 +14,15 @@ class HomepageController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function homepage(EntityManagerInterface $entityManager): Response
     {
-        $categoryRepository = $entityManager->getRepository(PhotoCategories::class);
-        $categories = $categoryRepository->findAll();
+        $photoCategoryRepository = $entityManager->getRepository(PhotoCategories::class);
+        $peopleReviewRepository = $entityManager->getRepository(PeopleReviews::class);
+
+        $peopleReview = $peopleReviewRepository->findAll();
+        $categories = $photoCategoryRepository->findAll();
         return $this->render('Homepage/homepage.html.twig', [
             'title' => 'Vidíííš vše? Co vidíííím já? ',
             'categories' => $categories,
+            'peopleReviews' => $peopleReview,
         ]);
     }
 

@@ -1,11 +1,14 @@
 <div class="swiper review-slider">
     {% use "Components/slider.html.twig" %}
-    {% block slideContent %} 
-    <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-    </div>
+    {% dump(peopleReviews) %}
+    {% block slideContent %}
+        <div class="swiper-wrapper">
+            {% for reviews in peopleReviews %}
+                <div class="swiper-slide">
+                    <img src="{{ asset(reviews.getReviewPhotoPath ) }}" alt="{{ reviews.getReviewPhotoName }}">
+                </div>
+            {% endfor %}
+        </div>
     {% endblock %}
     {% block slideNavigation %} {{ parent() }} {% endblock %}
 </div>
