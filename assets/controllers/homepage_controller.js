@@ -29,11 +29,12 @@ export default class extends Controller {
         const portfolioSlider = new Swiper('.portfolio-slider', {
             // Optional parameters
             direction: 'horizontal',
-            loop: true,
-            slidesPerView: 3,
+            slidesPerView: 4,
+            spaceBetween: 10,
             // If we need pagination
             pagination: {
-                el: '.swiper-pagination',
+                el: ".swiper-pagination",
+                clickable: true,
             },
         
             // Navigation arrows

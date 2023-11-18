@@ -17,7 +17,7 @@ class PhotoCategories
     private ?string $categoryName = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $categoryPhotoPath = null;
+    private ?string $categoryPhotoName = null;
 
     #[ORM\Column]
     private \DateTimeImmutable $createdAt;
@@ -44,22 +44,17 @@ class PhotoCategories
         return $this;
     }
 
+    public function getCategoryPhotoName(): ?string
+    {
+        return $this->categoryPhotoName;
+    }
     public function getCategoryPhotoPath(): ?string
     {
-        if (!$this->categoryPhotoPath) {
-            return null;
-        }
-        
-        if (strpos($this->categoryPhotoPath, '/' !== false)) {
-            return $this->categoryPhotoPath;
-        };
-
-        return sprintf('%s', $this->categoryPhotoPath);
+        return 'uploads/categories/' . $this->categoryPhotoName;
     }
-
-    public function setCategoryPhotoPath(string $categoryPhotoPath): static
+    public function setCategoryPhotoName(string $categoryPhotoName): static
     {
-        $this->categoryPhotoPath = $categoryPhotoPath;
+        $this->categoryPhotoName = $categoryPhotoName;
         return $this;
     }
 

@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class PhotographyInfoPageController extends AbstractController
 {
     #[Route('/photography-info', name: 'photography_info_page')]
-    public function PhotographyInfoPage(): Response
+    public function photographyInfoPage(): Response
     {
         return $this->render('PhotographyInfoPage/photography_info_page.html.twig', [
             'title' => 'Informace o focení',

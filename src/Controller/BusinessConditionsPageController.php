@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class BusinessConditionsPageController extends AbstractController
 {
     #[Route('/business-conditions', name: 'business_conditions_page')]
-    public function BusinessConditionsPageController(): Response
+    public function businessConditionsPageController(): Response
     {
         return $this->render('BusinessConditionsPage/business_conditions_page.html.twig', [
             'title' => 'Obchodní podmínky',

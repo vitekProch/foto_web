@@ -20,7 +20,7 @@ class PhotoCategoriesCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('categoryName', 'Název kategorie');
-        yield ImageField::new('CategoryPhotoPath', 'Náhled obrázku kategorie')
+        yield ImageField::new('CategoryPhotoName', 'Náhled obrázku kategorie')
             ->setBasePath('uploads/categories')
             ->setUploadDir('public/uploads/categories')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');

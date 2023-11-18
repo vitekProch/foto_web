@@ -1,6 +1,15 @@
 <div class="swiper portfolio-slider">
     {% use "Components/slider.html.twig" %}
-    {% block slideContent %} {{ parent() }} {% endblock %}
+        {% dump (categories[0].categoryPhotoPath) %}
+    {% block slideContent %}
+        <div class="swiper-wrapper">
+                {% for category in categories %}
+                <div class="swiper-slide">
+                        <img src="{{ asset(category.categoryPhotoPath ) }}" alt="{{ category.categoryName }}">
+                </div>
+                {% endfor %}
+        </div>
+    {% endblock %}
     {% block slidePagination %} {{ parent() }} {% endblock %}
     {% block slideNavigation %} {{ parent() }} {% endblock %}
 </div>

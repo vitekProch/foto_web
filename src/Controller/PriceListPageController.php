@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class PriceListPageController extends AbstractController
 {
     #[Route('/price-list', name: 'price_list_page')]
-    public function PriceListPage(): Response
+    public function priceListPage(): Response
     {
         return $this->render('PriceListPage/price_list_page.html.twig', [
             'title' => 'Ceník',

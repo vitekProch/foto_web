@@ -17,7 +17,7 @@ class PeopleReviews
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $reviewPath = null;
+    private ?string $reviewPhotoName = null;
 
     #[ORM\Column(length: 255)]
     private ?string $reviewAlt = null;
@@ -29,19 +29,20 @@ class PeopleReviews
     {
         $this->createdAt = new \DateTimeImmutable();
     }
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getReviewPath(): ?string
+    public function getReviewPhotoName(): ?string
     {
-        return $this->reviewPath;
+        return $this->reviewPhotoName;
     }
 
-    public function setReviewPath(string $reviewPath): static
+    public function setReviewPhotoName(string $reviewPhotoName): static
     {
-        $this->reviewPath = $reviewPath;
+        $this->reviewPhotoName = $reviewPhotoName;
 
         return $this;
     }
@@ -62,25 +63,30 @@ class PeopleReviews
     {
         return $this->createdAt;
     }
+
     public function setReviewPathFile($reviewAlt): static
     {
-        return $this->setReviewPath($reviewAlt[0]);
+        return $this->setReviewPhotoName($reviewAlt[0]);
     }
 
     public function getReviewPathFile(): ?string
     {
-        return $this->getReviewPath();
+        return $this->getReviewPhotoName();
     }
 
-    public function upload($file, $uniqueImageName)
+    public function getReviewPhotoPath(): ?string
     {
+        return '/uploads/reviews/' . $this->reviewPhotoName;
+    }
 
+    public function upload($file, $uniqueImageName): void
+    {
         $file->move(
             self::UPLOAD_IMAGE_DIRECTORY,
             $uniqueImageName
         );
-
     }
+
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;

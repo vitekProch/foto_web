@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class SpecialOfferPageController extends AbstractController
 {
     #[Route('/special-offer', name: 'special_offer_page')]
-    public function SpecialOfferPage(): Response
+    public function specialOfferPage(): Response
     {
         return $this->render('SpecialOfferPage/special_offer_page.html.twig', [
             'title' => 'Novinky',

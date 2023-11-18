@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class BlogPageController extends AbstractController
 {
     #[Route('/blog', name: 'blog_page')]
-    public function BlogPage(): Response
+    public function blogPage(): Response
     {
         return $this->render('BlogPage/blog_page.html.twig', [
             'title' => 'Články',
