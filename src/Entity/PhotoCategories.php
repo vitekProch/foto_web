@@ -50,7 +50,7 @@ class PhotoCategories
     }
     public function getCategoryPhotoPath(): ?string
     {
-        return 'uploads/categories/' . $this->categoryPhotoName;
+        return '/uploads/categories/' . $this->categoryPhotoName;
     }
     public function setCategoryPhotoName(string $categoryPhotoName): static
     {
