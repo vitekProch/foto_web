@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\EasyAdmin\MultiUploadImages;
 
 use EasyCorp\Bundle\EasyAdminBundle\Contracts\Field\FieldInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FieldTrait;
@@ -14,10 +14,14 @@ class MultipleImageField implements FieldInterface
     {
         return (new self())
             ->setProperty($propertyName)
+            ->setLabel($label)
+            ->onlyWhenCreating()
+            ->setTemplateName('crud/field/image')
+            ->setCssClass('field-image')
+
             ->setFormType(FileType::class)
             ->setFormTypeOptions([
                 'multiple' => true,
-                'data_class' => null,
             ]);
     }
 }
