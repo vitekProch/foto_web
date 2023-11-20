@@ -10,7 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: PeopleReviewsRepository::class)]
 class PeopleReviews
 {
-    const UPLOAD_IMAGE_DIRECTORY = 'uploads/reviews';
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -77,14 +76,6 @@ class PeopleReviews
     public function getReviewPhotoPath(): ?string
     {
         return '/uploads/reviews/' . $this->reviewPhotoName;
-    }
-
-    public function upload($file, $uniqueImageName): void
-    {
-        $file->move(
-            self::UPLOAD_IMAGE_DIRECTORY,
-            $uniqueImageName
-        );
     }
 
     public function setCreatedAt(\DateTimeImmutable $createdAt): static

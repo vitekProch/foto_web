@@ -16,10 +16,19 @@ class MultipleImageHelper
         return $fileSplit[0] . '-' . md5(microtime())  . '.' . end($fileSplit);
     }
 
-    public function deleteReviewFromDirectory(string $reviewToRemovePath): void
+    public function deletePhotoFromDirectory(string $reviewToRemovePath): void
     {
         $deleteImgPath = $this->appKernel->getProjectDir().
             '/public' . $reviewToRemovePath;
         if(file_exists($deleteImgPath)) unlink($deleteImgPath);
     }
+
+    public function upload($file, $uniqueImageName, $uploadDirectory): void
+    {
+        $file->move(
+            $uploadDirectory,
+            $uniqueImageName
+        );
+    }
+
 }

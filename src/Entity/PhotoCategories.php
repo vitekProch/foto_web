@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PhotoCategoriesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PhotoCategoriesRepository::class)]
@@ -22,9 +24,13 @@ class PhotoCategories
     #[ORM\Column]
     private \DateTimeImmutable $createdAt;
 
+    #[ORM\OneToMany(mappedBy: 'photoCategory', targetEntity: PortfolioPhotos::class)]
+    private Collection $portfolioPhotos;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->portfolioPhotos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -66,6 +72,36 @@ class PhotoCategories
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PortfolioPhotos>
+     */
+    public function getPortfolioPhotos(): Collection
+    {
+        return $this->portfolioPhotos;
+    }
+
+    public function addPortfolioPhoto(PortfolioPhotos $portfolioPhoto): static
+    {
+        if (!$this->portfolioPhotos->contains($portfolioPhoto)) {
+            $this->portfolioPhotos->add($portfolioPhoto);
+            $portfolioPhoto->setPhotoCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removePortfolioPhoto(PortfolioPhotos $portfolioPhoto): static
+    {
+        if ($this->portfolioPhotos->removeElement($portfolioPhoto)) {
+            // set the owning side to null (unless already changed)
+            if ($portfolioPhoto->getPhotoCategory() === $this) {
+                $portfolioPhoto->setPhotoCategory(null);
+            }
+        }
 
         return $this;
     }
