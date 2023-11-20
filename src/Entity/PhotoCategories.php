@@ -27,6 +27,9 @@ class PhotoCategories
     #[ORM\OneToMany(mappedBy: 'photoCategory', targetEntity: PortfolioPhotos::class)]
     private Collection $portfolioPhotos;
 
+    #[ORM\Column(length: 255)]
+    private ?string $fontAwesomeIcon = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -102,6 +105,18 @@ class PhotoCategories
                 $portfolioPhoto->setPhotoCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFontAwesomeIcon(): ?string
+    {
+        return $this->fontAwesomeIcon;
+    }
+
+    public function setFontAwesomeIcon(string $fontAwesomeIcon): static
+    {
+        $this->fontAwesomeIcon = $fontAwesomeIcon;
 
         return $this;
     }

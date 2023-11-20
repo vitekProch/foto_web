@@ -10,7 +10,7 @@
                         {% for category in categories %}
                             <li class="nav-item">
                                 <a class="nav-link py-3 px-2" href="#">
-                                    <i class="fa-solid fa-house"></i>
+                                    <i class="{{ category.getFontAwesomeIcon }} fa-lg"></i>
                                     <span class="fs-5 d-none d-md-inline">{{ category.getCategoryName }}</span>
                                 </a>
                             </li>
