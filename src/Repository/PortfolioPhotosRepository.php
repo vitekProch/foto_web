@@ -21,28 +21,13 @@ class PortfolioPhotosRepository extends ServiceEntityRepository
         parent::__construct($registry, PortfolioPhotos::class);
     }
 
-//    /**
-//     * @return PortfolioPhotos[] Returns an array of PortfolioPhotos objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
 
-//    public function findOneBySomeField($value): ?PortfolioPhotos
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findByExampleField($category = null)
+    {
+        $dql = 'SELECT _id FROM App\Entity\PortfolioPhotos as p';
+
+        $query = $this->getEntityManager()->createQuery($dql);
+
+        return $query->getResult();
+    }
 }

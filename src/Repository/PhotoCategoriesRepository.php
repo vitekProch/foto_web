@@ -21,20 +21,20 @@ class PhotoCategoriesRepository extends ServiceEntityRepository
         parent::__construct($registry, PhotoCategories::class);
     }
 
-//    /**
-//     * @return PhotoCategories[] Returns an array of PhotoCategories objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return PhotoCategories[] Returns an array of PhotoCategories objects
+     */
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.categoryName = :val')
+            ->setParameter('val', $value)
+            ->orderBy('p.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?PhotoCategories
 //    {

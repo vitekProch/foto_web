@@ -34,9 +34,9 @@
     {% include 'header.html.twig' %}
     
     <body>
-        <div class="content {% if active_route == 'homepage' %}without-nav-margin{% endif %}">
+        <main class="content {% if active_route == 'homepage' %}without-nav-margin{% endif %}">
             {% block body %}{% endblock %}
-        </div>
+        </main>
     </body>
     {% include 'footer.html.twig' %}
 </html>

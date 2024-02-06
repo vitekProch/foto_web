@@ -6,6 +6,7 @@ use App\Repository\PhotoCategoriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: PhotoCategoriesRepository::class)]
 class PhotoCategories
@@ -29,6 +30,12 @@ class PhotoCategories
 
     #[ORM\Column(length: 255)]
     private ?string $fontAwesomeIcon = null;
+
+    #[ORM\Column(length: 255, unique: true)]
+    #[Gedmo\Slug(fields: ['categoryName'])]
+    private ?string $slug = null;
+
+
 
     public function __construct()
     {
@@ -117,6 +124,16 @@ class PhotoCategories
     public function setFontAwesomeIcon(string $fontAwesomeIcon): static
     {
         $this->fontAwesomeIcon = $fontAwesomeIcon;
+
+        return $this;
+    }
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+    public function setSlug($slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }

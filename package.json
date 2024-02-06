@@ -29,6 +29,7 @@
     "dependencies": {
         "sass": "^1.69.4",
         "sass-loader": "^13.3.2",
-        "stimulus-autocomplete": "^3.1.0"
+        "stimulus-autocomplete": "^3.1.0",
+        "stimulus-lightbox": "^3.2.0"
     }
 }

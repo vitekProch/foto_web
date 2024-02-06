@@ -58,7 +58,7 @@ class PortfolioPhotosCrudController extends AbstractCrudController
 
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
-        $filesArray = parent::getContext()->getRequest()->files->get('PortfolioPhotos')['portfolioPathFile'];
+        $filesArray = parent::getContext()->getRequest()->files->get('PortfolioPhotos')['PortfolioPathFile'];
         foreach($filesArray as $file)
         {
             $uniqueImageName = $this->uploadHelper->generateUniqueFileName($file->getClientOriginalName());
