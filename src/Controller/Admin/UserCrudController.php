@@ -21,10 +21,11 @@ class UserCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
+        $roles = ['ROLE_SUPER_ADMIN', 'ROLE_ADMIN', 'ROLE_USER'];
+        
         yield IdField::new('id', 'Identifikační číslo')
             ->onlyOnIndex();
         yield TextField::new('username', 'Jméno');
-        $roles = ['ROLE_SUPER_ADMIN', 'ROLE_ADMIN', 'ROLE_USER'];
         yield ChoiceField::new('roles')
             ->setChoices(array_combine($roles, $roles))
             ->allowMultipleChoices()

@@ -39,6 +39,7 @@ class PeopleReviewsCrudController extends AbstractCrudController
 
         return $review;
     }
+    
     public function configureFields(string $pageName): iterable
     {
         yield IdField::new('id')
