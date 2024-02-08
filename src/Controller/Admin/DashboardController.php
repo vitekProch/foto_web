@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\PeopleReviews;
 use App\Entity\PhotoCategories;
+use App\Entity\PhotoPackageNames;
 use App\Entity\PortfolioPhotos;
 use App\Entity\User;
 use App\Entity\WeddingPackageItems;
@@ -56,6 +57,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Reviews', 'fa fa-home', PeopleReviews::class);
         yield MenuItem::linkToCrud('Svatební balíčky', 'fa fa-home', WeddingPhotoPackages::class);
         yield MenuItem::linkToCrud('Položky svatebních balíčků', 'fa fa-home', WeddingPackageItems::class);
+        yield MenuItem::linkToCrud('Položky normálních balíčků', 'fa fa-home', PhotoPackageNames::class);
         yield MenuItem::linkToCrud('Uživatelé', 'fas fa-users', User::class)
             ->setPermission('ROLE_SUPER_ADMIN');
     }

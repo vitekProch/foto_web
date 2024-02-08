@@ -61,7 +61,7 @@ class WeddingPhotoPackagesCrudController extends AbstractCrudController
 
         foreach($entityInstance->getMyCustomField() as $itemName) {
             $this->weddingPackageItemsRepository->setItemsFromArray($itemName);
-            array_push($selectedItems, $this->weddingPackageItemsRepository->findOneBySomeField($itemName)->getId());
+            $selectedItems[] = $this->weddingPackageItemsRepository->findOneBySomeField($itemName)->getId();
         }
 
         $entityInstance->setPackageItems($selectedItems);
