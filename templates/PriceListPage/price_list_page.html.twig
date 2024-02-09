@@ -35,34 +35,6 @@
                     </div>
                 </div>
             {% endfor %}
-            {% for priceList in weddingPriceList %}
-                {% dump(priceList) %}
-                <div class="row">
-                    <div class="col">
-                        <div class="container">
-                            <div class="row price-dropdown-header">
-                                <div class="col">{{ priceList.packageName }}</div>
-                                <div class="col"></div>
-                                <div class="col text-end"><i>ICONA</i></div>
-                            </div>
-                        </div>
-                        <article class="container price-dropdown hidden">
-
-                            <div class="row price-row">
-                                <div class="col">
-                                    <p>Chyba</p>
-                                </div>
-
-
-                                <div class="col text-end">
-                                    <p class="price-amount"> {{ priceList.packagePrice |format_currency('CZK', {fraction_digit: 0}, locale='cs_CZ') }}</p>
-                                </div>
-                            </div>
-
-                        </article>
-                    </div>
-                </div>
-            {% endfor %}
         </div>
     </div>
 </section>

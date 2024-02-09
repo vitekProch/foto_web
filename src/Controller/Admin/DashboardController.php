@@ -7,8 +7,6 @@ use App\Entity\PhotoCategories;
 use App\Entity\PhotoPackageNames;
 use App\Entity\PortfolioPhotos;
 use App\Entity\User;
-use App\Entity\WeddingPackageItems;
-use App\Entity\WeddingPhotoPackages;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -55,8 +53,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Úprava kategorií', 'fa fa-home', PhotoCategories::class);
         yield MenuItem::linkToCrud('Úprava portfolia', 'fa fa-home', PortfolioPhotos::class);
         yield MenuItem::linkToCrud('Reviews', 'fa fa-home', PeopleReviews::class);
-        yield MenuItem::linkToCrud('Svatební balíčky', 'fa fa-home', WeddingPhotoPackages::class);
-        yield MenuItem::linkToCrud('Položky svatebních balíčků', 'fa fa-home', WeddingPackageItems::class);
+        yield MenuItem::linkToCrud('Položky svatebních balíčků', 'fa fa-home', Weding::class);
         yield MenuItem::linkToCrud('Položky normálních balíčků', 'fa fa-home', PhotoPackageNames::class);
         yield MenuItem::linkToCrud('Uživatelé', 'fas fa-users', User::class)
             ->setPermission('ROLE_SUPER_ADMIN');
