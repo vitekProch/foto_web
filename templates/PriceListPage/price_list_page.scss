@@ -1,0 +1,43 @@
+$main-yellow: #fdd154;
+$light-apricot: #fff5ef;;
+
+.price-list-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.price-article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.price-dropdown {
+  width: 100%;
+  background-color: $light-apricot;
+  padding: 0 2rem 0.5rem 2rem;
+}
+
+.price-dropdown.hidden {
+  //display: none;
+}
+
+.price-dropdown-header {
+  cursor: pointer;
+  background-color: $main-yellow;
+  padding: 0.8rem;
+  border-radius: 10px 10px 0 0;
+}
+
+.price-row {
+  border-bottom: 3px solid $main-yellow;
+  padding-top: 1rem;
+}
+
+.price-amount {
+  font-weight: bold;
+}
