@@ -60,7 +60,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Úprava portfolia', 'fa fa-home', PortfolioPhotos::class);
         yield MenuItem::linkToCrud('Reviews', 'fa fa-home', PeopleReviews::class);
         yield MenuItem::linkToCrud('Položky svatebních balíčků', 'fa fa-home', WeddingPackage::class);
-        yield MenuItem::linkToCrud('Balíček svatebních balíčků', 'fa fa-home', SubPackage::class);
         yield MenuItem::linkToCrud('Itemy svatebních balíčků', 'fa fa-home', PackageItem::class);
         yield MenuItem::linkToCrud('Položky normálních balíčků', 'fa fa-home', PhotoPackageNames::class);
         yield MenuItem::linkToCrud('Uživatelé', 'fas fa-users', User::class)

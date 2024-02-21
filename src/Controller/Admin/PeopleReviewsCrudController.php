@@ -51,6 +51,7 @@ class PeopleReviewsCrudController extends AbstractCrudController
             ->setUploadDir('public/uploads/reviews');
 
         yield MultipleImageField::new('ReviewPathFile')
+            ->setRequired(true)
             ->setFormTypeOption('multiple', true);
 
         yield TextField::new('reviewAlt');

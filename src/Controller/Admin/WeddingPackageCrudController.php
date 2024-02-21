@@ -21,7 +21,8 @@ class WeddingPackageCrudController extends AbstractCrudController
             TextField::new('name', 'Název balíčku'),
             CollectionField::new('subPackages', 'Podbalíčky')
                 ->setEntryType(SubPackageType::class)
-                ->onlyOnForms(),
+                ->renderExpanded()
+                ->setRequired(true)
         ];
     }
 }

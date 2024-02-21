@@ -40,12 +40,15 @@ class PortfolioPhotosCrudController extends AbstractCrudController
         yield ImageField::new('PortfolioPhotoName')
             ->hideWhenCreating()
             ->setBasePath('uploads/portfolioPhoto')
+            ->setRequired(true)
             ->setUploadDir('public/uploads/portfolioPhoto');
 
         yield MultipleImageField::new('PortfolioPathFile')
+            ->setRequired(true)
             ->setFormTypeOption('multiple', true);
 
         yield AssociationField::new('photoCategory')
+            ->setRequired(true)
             ->hideOnIndex()
             ->setFormTypeOption('choice_label', 'categoryName');
 
