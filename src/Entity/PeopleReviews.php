@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\PeopleReviewsRepository;
-use Doctrine\Entity;
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PeopleReviewsRepository::class)]

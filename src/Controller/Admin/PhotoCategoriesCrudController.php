@@ -22,11 +22,13 @@ class PhotoCategoriesCrudController extends AbstractCrudController
     {
         return PhotoCategories::class;
     }
+
     public function __construct(PhotoCategoriesRepository $categoriesRepository, MultipleImageHelper $uploadHelper)
     {
         $this->categoriesRepository = $categoriesRepository;
         $this->uploadHelper = $uploadHelper;
     }
+    
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('categoryName', 'Název kategorie');

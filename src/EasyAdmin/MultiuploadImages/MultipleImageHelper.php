@@ -5,6 +5,8 @@ use Symfony\Component\HttpKernel\KernelInterface;
 
 class MultipleImageHelper
 {
+    private $appKernel;
+
     public function __construct(KernelInterface $appKernel)
     {
         $this->appKernel = $appKernel;

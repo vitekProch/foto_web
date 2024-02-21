@@ -2,5 +2,33 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/Collabim/collabim-chrome-extension" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/Collabim/collabim-install" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/Collabim/collabim/collabim-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/Collabim/collabim/collabim-chrome-extension" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/Collabim/collabim/collabim-local" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/Collabim/collabim/collabim-orchestration-onprem" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/Collabim/collabim/collabim-tracker" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/Collabim/install" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/another-form" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/forms" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/hana-web/client" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/kucharka" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/live-search" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/loading" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/menu" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/movies-dtb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/my-facebook" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/netflix-categiry-list" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/notifikace" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/prop drilling" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/react-sceleton" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/slider" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/toggle-question" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/useRef" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/vice-stran" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/React/web-sceleton/router" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/Programko/vstupni-test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pc 11.02. 2024/textové soubory/vstupni-test" vcs="Git" />
   </component>
 </project>

@@ -2,12 +2,17 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\PackageItem;
 use App\Entity\PeopleReviews;
 use App\Entity\PhotoCategories;
 use App\Entity\PhotoPackageNames;
 use App\Entity\PortfolioPhotos;
+use App\Entity\SubPackage;
 use App\Entity\User;
-use App\Entity\WeddingPhotoPackageType;
+use App\Entity\WeddingPackage;
+use App\Entity\WeddingPhotoItem;
+use App\Entity\WeddingPhotoPackage;
+use App\Entity\WeddingPhotoType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -54,7 +59,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Úprava kategorií', 'fa fa-home', PhotoCategories::class);
         yield MenuItem::linkToCrud('Úprava portfolia', 'fa fa-home', PortfolioPhotos::class);
         yield MenuItem::linkToCrud('Reviews', 'fa fa-home', PeopleReviews::class);
-        yield MenuItem::linkToCrud('Položky svatebních balíčků', 'fa fa-home', WeddingPhotoPackageType::class);
+        yield MenuItem::linkToCrud('Položky svatebních balíčků', 'fa fa-home', WeddingPackage::class);
+        yield MenuItem::linkToCrud('Balíček svatebních balíčků', 'fa fa-home', SubPackage::class);
+        yield MenuItem::linkToCrud('Itemy svatebních balíčků', 'fa fa-home', PackageItem::class);
         yield MenuItem::linkToCrud('Položky normálních balíčků', 'fa fa-home', PhotoPackageNames::class);
         yield MenuItem::linkToCrud('Uživatelé', 'fas fa-users', User::class)
             ->setPermission('ROLE_SUPER_ADMIN');
