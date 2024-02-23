@@ -21,7 +21,7 @@ class WeddingPackage
     #[ORM\OneToMany(mappedBy: 'weddingPackage', targetEntity: SubPackage::class, cascade: ["persist"])]
     private Collection $weddingPackage;
 
-    #[ORM\OneToMany(mappedBy: 'weddingPackage', targetEntity: SubPackage::class, cascade: ["persist"])]
+    #[ORM\OneToMany(mappedBy: 'weddingPackage', targetEntity: SubPackage::class, cascade: ["remove", "persist"])]
     private Collection $subPackages;
 
     public function __construct()
