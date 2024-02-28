@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\Fields\MultipleImageField;
-use App\EasyAdmin\MultiUploadImages\MultiUploadImages;
+use App\EasyAdmin\MultiUploadImages\ImageUpload;
 use App\Entity\PeopleReviews;
 use App\Repository\PeopleReviewsRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -19,13 +19,13 @@ use Symfony\Component\HttpFoundation\Response;
 class PeopleReviewsCrudController extends AbstractCrudController
 {
     private PeopleReviewsRepository $peopleReviewsRepository;
-    private MultiUploadImages $uploadHelper;
+    private ImageUpload $uploadHelper;
 
     public static function getEntityFqcn(): string
     {
         return PeopleReviews::class;
     }
-    public function __construct(PeopleReviewsRepository $peopleReviewsRepository, MultiUploadImages $uploadHelper)
+    public function __construct(PeopleReviewsRepository $peopleReviewsRepository, ImageUpload $uploadHelper)
     {
         $this->peopleReviewsRepository = $peopleReviewsRepository;
         $this->uploadHelper = $uploadHelper;
