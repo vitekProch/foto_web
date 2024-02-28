@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\Fields\MultipleImageField;
-use App\EasyAdmin\MultiUploadImages\MultiUploadImages;
+use App\EasyAdmin\MultiUploadImages\MultipleUploadImages;
 use App\Entity\PortfolioPhotos;
 use App\Repository\PortfolioPhotosRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -19,14 +19,14 @@ use Symfony\Component\HttpFoundation\Response;
 class PortfolioPhotosCrudController extends AbstractCrudController
 {
     private PortfolioPhotosRepository $photosRepository;
-    private MultiUploadImages $uploadHelper;
+    private MultipleUploadImages $uploadHelper;
 
     public static function getEntityFqcn(): string
     {
         return PortfolioPhotos::class;
     }
 
-    public function __construct(PortfolioPhotosRepository $photosRepository, MultiUploadImages $uploadHelper)
+    public function __construct(PortfolioPhotosRepository $photosRepository, MultipleUploadImages $uploadHelper)
     {
         $this->photosRepository = $photosRepository;
         $this->uploadHelper = $uploadHelper;
