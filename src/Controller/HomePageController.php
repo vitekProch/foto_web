@@ -20,7 +20,7 @@ class HomepageController extends AbstractController
         $peopleReview = $peopleReviewRepository->findAll();
         $categories = $photoCategoryRepository->findAll();
         return $this->render('Homepage/homepage.html.twig', [
-            'title' => 'Vidíííš vše? Co vidíííím já? ',
+            'title' => 'Homapage',
             'categories' => $categories,
             'peopleReviews' => $peopleReview,
         ]);
