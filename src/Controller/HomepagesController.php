@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class HomepageController extends AbstractController
+class HomepagesController extends AbstractController
 {
     #[Route('/', name: 'homepage')]
     public function homepage(EntityManagerInterface $entityManager): Response
