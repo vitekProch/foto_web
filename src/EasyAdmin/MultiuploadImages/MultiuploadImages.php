@@ -4,7 +4,7 @@ namespace App\EasyAdmin\MultiUploadImages;
 
 use Symfony\Component\HttpKernel\KernelInterface;
 
-class MultiuploadImages
+class MultiUploadImages
 {
     private KernelInterface $appKernel;
 
