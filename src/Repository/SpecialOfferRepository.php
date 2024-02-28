@@ -21,20 +21,18 @@ class SpecialOfferRepository extends ServiceEntityRepository
         parent::__construct($registry, SpecialOffer::class);
     }
 
-//    /**
-//     * @return SpecialOffer[] Returns an array of SpecialOffer objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('s.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return ?SpecialOffer[] Returns an array of SpecialOffer objects
+     */
+    public function findAllPublishedOffers(): ?array
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.specialOfferShow = true')
+            ->orderBy('s.updatedAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?SpecialOffer
 //    {

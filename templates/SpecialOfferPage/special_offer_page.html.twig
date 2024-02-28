@@ -1,9 +1,16 @@
 {% extends 'base.html.twig' %}
 {% block title %} Novinky | {{ parent() }}{% endblock %}
 {% block body %}
-<div class="special-offer-page">
-<h1>{{ title }}</h1>
-</div>
+
+<section class="news-page page-header-margin container">
+    <div class="special-offer-pictures">
+        {% for specialOffer in specialOffers %}
+            <div class="special-offer-pictures-box">
+                <img src="{{ asset('/uploads/specialOffer/' ~ specialOffer.specialOfferImage) }}" alt="{{specialOffer.specialOfferName}}" />
+            </div>
+        {% endfor %}
+    </div>
 </section>
+
     
 {% endblock %}
