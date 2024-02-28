@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\EasyAdmin\MultiUploadImages\MultipleImageField;
+use App\EasyAdmin\Fields\MultipleImageField;
 use App\EasyAdmin\MultiUploadImages\MultipleImageHelper;
 use App\Entity\PortfolioPhotos;
 use App\Repository\PortfolioPhotosRepository;

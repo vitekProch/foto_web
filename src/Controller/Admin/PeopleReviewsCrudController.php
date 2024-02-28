@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\EasyAdmin\MultiUploadImages\MultipleImageField;
+use App\EasyAdmin\Fields\MultipleImageField;
 use App\EasyAdmin\MultiUploadImages\MultipleImageHelper;
 use App\Entity\PeopleReviews;
 use App\Repository\PeopleReviewsRepository;
@@ -14,7 +14,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\KernelInterface;
 
 
 class PeopleReviewsCrudController extends AbstractCrudController

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\EasyAdmin\MultiUploadImages;
+namespace App\EasyAdmin\Fields;
 
 use EasyCorp\Bundle\EasyAdminBundle\Contracts\Field\FieldInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FieldTrait;
