@@ -15,7 +15,6 @@ class PhotoPackageNamesCrudController extends AbstractCrudController
         return PhotoPackageNames::class;
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('photoPackageTitle', 'Název balíčku')
@@ -25,5 +24,4 @@ class PhotoPackageNamesCrudController extends AbstractCrudController
             ->renderExpanded()
             ->setRequired(true);
     }
-
 }
