@@ -1,10 +1,10 @@
 <?php
 
-namespace App\EasyAdmin\MultiUploadImages;
+namespace App\EasyAdmin\Fields;
 
 use Symfony\Component\HttpKernel\KernelInterface;
 
-class ImageUpload
+class ImageUploadHelper
 {
     private KernelInterface $appKernel;
 

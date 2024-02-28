@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\EasyAdmin\MultiUploadImages\ImageUpload;
+use App\EasyAdmin\Fields\ImageUploadHelper;
 use App\Entity\PhotoCategories;
 use App\Repository\PhotoCategoriesRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PhotoCategoriesCrudController extends AbstractCrudController
 {
-    private ImageUpload $uploadHelper;
+    private ImageUploadHelper $uploadHelper;
     private PhotoCategoriesRepository $categoriesRepository;
 
     public static function getEntityFqcn(): string
@@ -23,7 +23,7 @@ class PhotoCategoriesCrudController extends AbstractCrudController
         return PhotoCategories::class;
     }
 
-    public function __construct(PhotoCategoriesRepository $categoriesRepository, ImageUpload $uploadHelper)
+    public function __construct(PhotoCategoriesRepository $categoriesRepository, ImageUploadHelper $uploadHelper)
     {
         $this->categoriesRepository = $categoriesRepository;
         $this->uploadHelper = $uploadHelper;
