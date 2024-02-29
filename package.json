@@ -30,6 +30,7 @@
     },
     "dependencies": {
         "@googlemaps/js-api-loader": "^1.16.6",
+        "@popperjs/core": "^2.11.8",
         "jquery": "^3.7.1",
         "npm-watch": "^0.11.0",
         "sass": "^1.69.4",

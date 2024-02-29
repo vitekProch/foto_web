@@ -3,8 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\Fields\ImageUploadHelper;
+use App\EasyAdmin\Helpers\ActionHelper;
 use App\Entity\PhotoCategories;
 use App\Repository\PhotoCategoriesRepository;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -17,22 +19,29 @@ class PhotoCategoriesCrudController extends AbstractCrudController
 {
     private ImageUploadHelper $uploadHelper;
     private PhotoCategoriesRepository $categoriesRepository;
+    private ActionHelper $actionHelper;
 
     public static function getEntityFqcn(): string
     {
         return PhotoCategories::class;
     }
 
-    public function __construct(PhotoCategoriesRepository $categoriesRepository, ImageUploadHelper $uploadHelper)
+    public function __construct(PhotoCategoriesRepository $categoriesRepository, ImageUploadHelper $uploadHelper, ActionHelper $actionHelper)
     {
         $this->categoriesRepository = $categoriesRepository;
         $this->uploadHelper = $uploadHelper;
+        $this->actionHelper = $actionHelper;
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        return $this->actionHelper->changeActionsLabel($actions);
     }
     
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('categoryName', 'Název kategorie');
-        yield ImageField::new('CategoryPhotoName', 'Náhled obrázku kategorie')
+        yield ImageField::new('CategoryPhotoName', 'Obrázek kategorie')
             ->setBasePath('uploads/categories')
             ->setUploadDir('public/uploads/categories')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');

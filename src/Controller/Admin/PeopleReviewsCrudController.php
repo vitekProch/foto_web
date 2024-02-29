@@ -4,9 +4,12 @@ namespace App\Controller\Admin;
 
 use App\EasyAdmin\Fields\MultipleImageField;
 use App\EasyAdmin\Fields\ImageUploadHelper;
+use App\EasyAdmin\Helpers\ActionHelper;
 use App\Entity\PeopleReviews;
 use App\Repository\PeopleReviewsRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\BatchActionDto;
@@ -20,15 +23,31 @@ class PeopleReviewsCrudController extends AbstractCrudController
 {
     private PeopleReviewsRepository $peopleReviewsRepository;
     private ImageUploadHelper $uploadHelper;
+    private ActionHelper $actionHelper;
 
     public static function getEntityFqcn(): string
     {
         return PeopleReviews::class;
     }
-    public function __construct(PeopleReviewsRepository $peopleReviewsRepository, ImageUploadHelper $uploadHelper)
+
+    public function __construct(PeopleReviewsRepository $peopleReviewsRepository, ImageUploadHelper $uploadHelper, ActionHelper $actionHelper)
     {
         $this->peopleReviewsRepository = $peopleReviewsRepository;
         $this->uploadHelper = $uploadHelper;
+        $this->actionHelper = $actionHelper;
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        return $this->actionHelper->changeActionsLabel($actions);
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return parent::configureCrud($crud)
+            ->setPageTitle('index','Recenze')
+            ->setPageTitle('edit','Uprav recenzi')
+            ->setPageTitle('new','Přidej recenzi');
     }
 
     public function createEntity(string $entityFqcn): PeopleReviews
@@ -44,16 +63,16 @@ class PeopleReviewsCrudController extends AbstractCrudController
         yield IdField::new('id')
             ->onlyOnIndex();
 
-        yield ImageField::new('ReviewPhotoName')
+        yield ImageField::new('ReviewPhotoName', 'Obrázek recenze')
             ->hideWhenCreating()
             ->setBasePath('uploads/reviews')
             ->setUploadDir('public/uploads/reviews');
 
-        yield MultipleImageField::new('ReviewPathFile')
+        yield MultipleImageField::new('ReviewPathFile', "Přidej recenze")
             ->setRequired(true)
             ->setFormTypeOption('multiple', true);
 
-        yield TextField::new('reviewAlt');
+        yield TextField::new('reviewAlt', 'Alternativní text');
     }
 
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void

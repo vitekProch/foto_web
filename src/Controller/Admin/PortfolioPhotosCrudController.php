@@ -4,9 +4,12 @@ namespace App\Controller\Admin;
 
 use App\EasyAdmin\Fields\MultipleImageField;
 use App\EasyAdmin\Fields\ImageUploadHelper;
+use App\EasyAdmin\Helpers\ActionHelper;
 use App\Entity\PortfolioPhotos;
 use App\Repository\PortfolioPhotosRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\BatchActionDto;
@@ -20,16 +23,31 @@ class PortfolioPhotosCrudController extends AbstractCrudController
 {
     private PortfolioPhotosRepository $photosRepository;
     private ImageUploadHelper $uploadHelper;
+    private ActionHelper $actionHelper;
 
     public static function getEntityFqcn(): string
     {
         return PortfolioPhotos::class;
     }
 
-    public function __construct(PortfolioPhotosRepository $photosRepository, ImageUploadHelper $uploadHelper)
+    public function __construct(PortfolioPhotosRepository $photosRepository, ImageUploadHelper $uploadHelper, ActionHelper $actionHelper)
     {
         $this->photosRepository = $photosRepository;
         $this->uploadHelper = $uploadHelper;
+        $this->actionHelper = $actionHelper;
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        return $this->actionHelper->changeActionsLabel($actions);
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return parent::configureCrud($crud)
+            ->setPageTitle('index','Portfólio')
+            ->setPageTitle('edit','Uprav fotografii')
+            ->setPageTitle('new','Přidej fotografii');
     }
 
     public function configureFields(string $pageName): iterable
@@ -37,25 +55,25 @@ class PortfolioPhotosCrudController extends AbstractCrudController
         yield IdField::new('id')
             ->onlyOnIndex();
 
-        yield ImageField::new('PortfolioPhotoName')
+        yield ImageField::new('PortfolioPhotoName', 'Fotografie')
             ->hideWhenCreating()
             ->setBasePath('uploads/portfolioPhoto')
             ->setRequired(true)
             ->setUploadDir('public/uploads/portfolioPhoto');
 
-        yield MultipleImageField::new('PortfolioPathFile')
+        yield MultipleImageField::new('PortfolioPathFile', 'Fotka')
             ->setRequired(true)
             ->setFormTypeOption('multiple', true);
 
-        yield AssociationField::new('photoCategory')
+        yield AssociationField::new('photoCategory', 'Kategorie')
             ->setRequired(true)
             ->hideOnIndex()
             ->setFormTypeOption('choice_label', 'categoryName');
 
-        yield TextField::new('photoCategoryName')
+        yield TextField::new('photoCategoryName', 'Kategorie')
             ->onlyOnIndex();
 
-        yield TextField::new('portfolioAlt')
+        yield TextField::new('portfolioAlt', 'Alternativní text fotky')
             ->onlyWhenUpdating();
     }
 

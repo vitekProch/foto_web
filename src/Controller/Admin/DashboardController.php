@@ -38,14 +38,29 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToUrl('Hlavní stránka', 'fa fa-home', $this->generateUrl('homepage'));
-        yield MenuItem::linkToCrud('Úprava kategorií', 'fa fa-home', PhotoCategories::class);
-        yield MenuItem::linkToCrud('Úprava portfolia', 'fa fa-home', PortfolioPhotos::class);
-        yield MenuItem::linkToCrud('Reviews', 'fa fa-home', PeopleReviews::class);
-        yield MenuItem::linkToCrud('Speciální nabídky', 'fa fa-home', SpecialOffer::class);
-        yield MenuItem::linkToCrud('Položky svatebních balíčků', 'fa fa-home', WeddingPackage::class);
-        yield MenuItem::linkToCrud('Itemy svatebních balíčků', 'fa fa-home', PackageItem::class);
-        yield MenuItem::linkToCrud('Položky normálních balíčků', 'fa fa-home', PhotoPackageNames::class);
-        yield MenuItem::linkToCrud('Uživatelé', 'fas fa-users', User::class)
+        yield MenuItem::section('Uprav svou stránku');
+        yield MenuItem::subMenu('Úprava domů', 'fa-solid fa-house-circle-check')
+            ->setSubItems([
+                MenuItem::linkToCrud('Recenze', 'fa-solid fa-comment', PeopleReviews::class)
+            ]);
+        yield MenuItem::subMenu('Úprava portfólia', 'fa-solid fa-camera-retro')
+            ->setSubItems([
+                MenuItem::linkToCrud('Úprava fotek', 'fa-regular fa-image', PortfolioPhotos::class),
+                MenuItem::linkToCrud('Úprava kategorií', 'fa-solid fa-list', PhotoCategories::class),
+            ]);
+        yield MenuItem::subMenu('Úprava Novinek', 'fa-regular fa-newspaper')
+            ->setSubItems([
+                MenuItem::linkToCrud('Speciální nabídky', 'fa-solid fa-wand-magic-sparkles', SpecialOffer::class)
+        ]);
+
+        yield MenuItem::subMenu('Úprava ceníku', 'fa-solid fa-coins')
+            ->setSubItems([
+                MenuItem::linkToCrud('Svatební balíčky', 'fa-solid fa-ring', WeddingPackage::class),
+                MenuItem::linkToCrud('Odrážky svatebních balíčků', 'fa-solid fa-align-left', PackageItem::class),
+                MenuItem::linkToCrud('Klasické balíčky', 'fa-solid fa-box-open', PhotoPackageNames::class),
+            ]);
+
+        MenuItem::linkToCrud('Uživatelé', 'fas fa-users', User::class)
             ->setPermission('ROLE_SUPER_ADMIN');
     }
 
